@@ -1,5 +1,0 @@
-package environment
-
-func init() {
-	
-}
