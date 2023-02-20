@@ -1,7 +1,7 @@
 package restapi
 
 import (
-	model "com/unisun/core-framework/rest-api/model"
+	model "unisun.com/backend/unisun-common-framework/rest-api/model"
 )
 
 type OptionConfig struct {

@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	constant "com/unisun/core-framework/rest-api/constant"
-	model "com/unisun/core-framework/rest-api/model"
+	constant "unisun.com/backend/unisun-common-framework/rest-api/constant"
+	model "unisun.com/backend/unisun-common-framework/rest-api/model"
 )
 
 func (option *OptionConfig) Request(model *any) error {

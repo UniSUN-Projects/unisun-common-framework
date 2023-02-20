@@ -1,6 +1,6 @@
 package environment
 
-import _model "com/unisun/core-framework/environment/model"
+import _model "unisun.com/backend/unisun-common-framework/environment/model"
 
 type OptionConfig struct {
 	Name   string

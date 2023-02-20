@@ -1,6 +1,6 @@
 package restapi
 
-import _interface "com/unisun/core-framework/rest-api/interface"
+import _interface "unisun.com/backend/unisun-common-framework/rest-api/interface"
 
 type restApi struct {
 	Request _interface.RequestInterface
