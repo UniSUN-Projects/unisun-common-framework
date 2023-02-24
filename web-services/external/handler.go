@@ -1,8 +1,8 @@
 package external
 
 import (
+	"github.com/UniSUN-Projects/unisun-common-framework/web-services/constant"
 	"github.com/gin-gonic/gin"
-	"unisun.com/backend/unisun-common-framework/web-services/constant"
 )
 
 type SetHandleStruct struct{}

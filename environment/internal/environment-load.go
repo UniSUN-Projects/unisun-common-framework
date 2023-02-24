@@ -3,8 +3,8 @@ package environment
 import (
 	"log"
 
-	_interface "unisun.com/backend/unisun-common-framework/environment/interface"
-	_model "unisun.com/backend/unisun-common-framework/environment/model"
+	_interface "github.com/UniSUN-Projects/unisun-common-framework/environment/interface"
+	_model "github.com/UniSUN-Projects/unisun-common-framework/environment/model"
 
 	"github.com/spf13/viper"
 )

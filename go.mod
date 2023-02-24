@@ -1,4 +1,4 @@
-module unisun.com/backend/unisun-common-framework
+module github.com/UniSUN-Projects/unisun-common-framework
 
 go 1.19
 

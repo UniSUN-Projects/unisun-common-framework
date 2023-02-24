@@ -1,9 +1,9 @@
 package environment
 
 import (
-	constant "unisun.com/backend/unisun-common-framework/environment/constant"
-	initial "unisun.com/backend/unisun-common-framework/environment/internal"
-	_model "unisun.com/backend/unisun-common-framework/environment/model"
+	constant "github.com/UniSUN-Projects/unisun-common-framework/environment/constant"
+	initial "github.com/UniSUN-Projects/unisun-common-framework/environment/internal"
+	_model "github.com/UniSUN-Projects/unisun-common-framework/environment/model"
 )
 
 func (_option *OptionConfig) Default(model *any) {
