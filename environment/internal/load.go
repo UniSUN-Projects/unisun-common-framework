@@ -4,7 +4,6 @@ import (
 	"log"
 	"strings"
 
-	"github.com/UniSUN-Projects/unisun-common-framework/environment/interfaces"
 	"github.com/UniSUN-Projects/unisun-common-framework/environment/models"
 	"github.com/spf13/viper"
 )
@@ -16,26 +15,18 @@ type ConfigEnvironment struct {
 	Option models.Option
 }
 
-func Init(_name string, _type string, _path string, _option models.Option) *ConfigEnvironment {
+func NewLoad(_name string, _type string, _path string, _loadEnv bool) *ConfigEnvironment {
 	return &ConfigEnvironment{
-		Type:   _type,
-		Name:   _name,
-		Path:   _path,
-		Option: _option,
+		Type: _type,
+		Name: _name,
+		Path: _path,
+		Option: models.Option{
+			LoadENV: _loadEnv,
+		},
 	}
 }
 
-type LoadFunc struct {
-	Load interfaces.LoadInterface
-}
-
-func New(load interfaces.LoadInterface) *LoadFunc {
-	return &LoadFunc{
-		Load: load,
-	}
-}
-
-func (c *ConfigEnvironment) Load(model *interface{}) {
+func (c *ConfigEnvironment) Load(model interface{}) {
 	v := viper.New()
 	v.SetConfigName(c.Name)
 	v.SetConfigType(c.Type)
@@ -47,7 +38,7 @@ func (c *ConfigEnvironment) Load(model *interface{}) {
 	if err := v.ReadInConfig(); err != nil {
 		log.Panic(err)
 	}
-	if err := v.Unmarshal(model); err != nil {
+	if err := v.Unmarshal(&model); err != nil {
 		log.Panic(err)
 	}
 }
