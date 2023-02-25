@@ -1,4 +1,4 @@
-package restapi
+package external
 
 import (
 	"bytes"
@@ -8,8 +8,8 @@ import (
 	"strings"
 	"time"
 
-	constant "github.com/UniSUN-Projects/unisun-common-framework/rest-api/constant"
-	model "github.com/UniSUN-Projects/unisun-common-framework/rest-api/model"
+	"github.com/UniSUN-Projects/unisun-common-framework/rest-api/constant"
+	"github.com/UniSUN-Projects/unisun-common-framework/rest-api/models"
 )
 
 func (option *OptionConfig) Request(model *any) error {
@@ -39,7 +39,7 @@ func (option *OptionConfig) Request(model *any) error {
 	return nil
 }
 
-func mapHeader(req *http.Request, option model.Option) *http.Client {
+func mapHeader(req *http.Request, option models.Option) *http.Client {
 	if option.Header.Authorization.Type != "" && option.Header.Authorization.Token != "" {
 		req.Header.Add(constant.HEADER_AUTHORIZATION, strings.Join([]string{option.Header.Authorization.Type, option.Header.Authorization.Token}, " "))
 	}

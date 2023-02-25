@@ -1,12 +1,11 @@
-package environment
+package internal
 
 import (
 	"log"
 	"strings"
 
-	_interface "github.com/UniSUN-Projects/unisun-common-framework/environment/interface"
-	_model "github.com/UniSUN-Projects/unisun-common-framework/environment/model"
-
+	"github.com/UniSUN-Projects/unisun-common-framework/environment/interfaces"
+	"github.com/UniSUN-Projects/unisun-common-framework/environment/models"
 	"github.com/spf13/viper"
 )
 
@@ -14,10 +13,10 @@ type ConfigEnvironment struct {
 	Type   string
 	Name   string
 	Path   string
-	Option _model.Option
+	Option models.Option
 }
 
-func Init(_name string, _type string, _path string, _option _model.Option) *ConfigEnvironment {
+func Init(_name string, _type string, _path string, _option models.Option) *ConfigEnvironment {
 	return &ConfigEnvironment{
 		Type:   _type,
 		Name:   _name,
@@ -27,10 +26,10 @@ func Init(_name string, _type string, _path string, _option _model.Option) *Conf
 }
 
 type LoadFunc struct {
-	Load _interface.LoadInterface
+	Load interfaces.LoadInterface
 }
 
-func New(load _interface.LoadInterface) *LoadFunc {
+func New(load interfaces.LoadInterface) *LoadFunc {
 	return &LoadFunc{
 		Load: load,
 	}

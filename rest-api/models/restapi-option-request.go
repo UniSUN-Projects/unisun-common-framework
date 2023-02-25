@@ -1,4 +1,4 @@
-package restapi
+package models
 
 type Option struct {
 	Timeout int `mapstructure:"time-out"`

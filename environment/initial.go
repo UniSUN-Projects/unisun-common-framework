@@ -1,12 +1,12 @@
 package environment
 
-import _interface "github.com/UniSUN-Projects/unisun-common-framework/environment/interface"
+import "github.com/UniSUN-Projects/unisun-common-framework/environment/interfaces"
 
 type environment struct {
-	Factory _interface.FactoryInterface
+	Factory interfaces.FactoryInterface
 }
 
-func Init(option _interface.FactoryInterface) *environment {
+func Init(option interfaces.FactoryInterface) *environment {
 	return &environment{
 		Factory: option,
 	}
