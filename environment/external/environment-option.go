@@ -1,6 +1,9 @@
 package external
 
-import "github.com/UniSUN-Projects/unisun-common-framework/environment/models"
+import (
+	"github.com/UniSUN-Projects/unisun-common-framework/environment/constant"
+	"github.com/UniSUN-Projects/unisun-common-framework/environment/models"
+)
 
 type OptionConfig struct {
 	Name   string
@@ -25,13 +28,13 @@ func Option() *OptionConfig {
 		op := OptionConfig{}
 		for k, v := range OptionSet {
 			switch k {
-			case "name":
+			case constant.NAME:
 				op.Name = v.(string)
-			case "type":
+			case constant.TYPE:
 				op.Type = v.(string)
-			case "path":
+			case constant.PATH:
 				op.Path = v.(string)
-			case "loadENV":
+			case constant.LOAD_ENV:
 				op.Option.LoadENV = v.(bool)
 			}
 		}
