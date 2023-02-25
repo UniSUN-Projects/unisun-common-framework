@@ -35,7 +35,7 @@ func New(load interfaces.LoadInterface) *LoadFunc {
 	}
 }
 
-func (c *ConfigEnvironment) Load(model *any) {
+func (c *ConfigEnvironment) Load(model *interface{}) {
 	v := viper.New()
 	v.SetConfigName(c.Name)
 	v.SetConfigType(c.Type)
