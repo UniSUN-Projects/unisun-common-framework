@@ -2,6 +2,7 @@ package environment
 
 import (
 	"log"
+	"strings"
 
 	_interface "github.com/UniSUN-Projects/unisun-common-framework/environment/interface"
 	_model "github.com/UniSUN-Projects/unisun-common-framework/environment/model"
@@ -40,6 +41,7 @@ func (c *ConfigEnvironment) Load(model *any) {
 	v.SetConfigName(c.Name)
 	v.SetConfigType(c.Type)
 	v.AddConfigPath(c.Path)
+	viper.SetEnvKeyReplacer(strings.NewReplacer(".", "_"))
 	if c.Option.LoadENV {
 		v.AutomaticEnv()
 	}
