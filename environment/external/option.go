@@ -49,8 +49,27 @@ func (*OptionHandle) Option() *internal.ConfigEnvironment {
 				op.Option.LoadENV = v.(bool)
 			}
 		}
-		return internal.NewLoad(op.Name, op.Type, op.Path, op.Option.LoadENV)
+		return internal.NewLoad(stringsUtils(constant.NAME, op.Name).(string), stringsUtils(constant.TYPE, op.Type).(string), stringsUtils(constant.PATH, op.Path).(string), stringsUtils(constant.LOAD_ENV, op.Option.LoadENV).(bool))
 	} else {
 		return internal.NewLoad(constant.DEFAULT_NAME, constant.DEFAULT_TYPE, constant.DEFAULT_PATH, constant.DEFAULT_LOAD_ENV)
+	}
+}
+
+func stringsUtils(key string, value interface{}) interface{} {
+	if value != "" || value == true {
+		return value
+	} else {
+		var _value interface{}
+		switch key {
+		case constant.NAME:
+			_value = constant.DEFAULT_NAME
+		case constant.TYPE:
+			_value = constant.DEFAULT_TYPE
+		case constant.PATH:
+			_value = constant.DEFAULT_PATH
+		case constant.LOAD_ENV:
+			_value = constant.DEFAULT_LOAD_ENV
+		}
+		return _value
 	}
 }
