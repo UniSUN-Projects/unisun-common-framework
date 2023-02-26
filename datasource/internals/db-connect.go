@@ -26,3 +26,7 @@ func (*OptionHandle) Connect() {
 		panic(err)
 	}
 }
+
+func (*OptionHandle) SetMigrate(instan []interface{}) error {
+	return DB.AutoMigrate(instan)
+}
