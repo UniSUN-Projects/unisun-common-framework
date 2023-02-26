@@ -20,5 +20,9 @@ func (*RestHandleStruct) Start() {
 }
 
 func (*RestHandleStruct) NewServices(_method string, _path string, _handlers gin.HandlerFunc) {
-	Router.Handle(_method, _path, _handlers)
+	var path string
+	if models.Config.AppConfig.Context != "" {
+		path = fmt.Sprintf("%s%s", models.Config.AppConfig.Context, _path)
+	}
+	Router.Handle(_method, path, _handlers)
 }
