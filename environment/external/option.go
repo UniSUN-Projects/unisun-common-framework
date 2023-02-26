@@ -2,7 +2,7 @@ package external
 
 import (
 	"github.com/UniSUN-Projects/unisun-common-framework/environment/constant"
-	"github.com/UniSUN-Projects/unisun-common-framework/environment/internal"
+	"github.com/UniSUN-Projects/unisun-common-framework/environment/internals"
 	"github.com/UniSUN-Projects/unisun-common-framework/environment/models"
 )
 
@@ -33,7 +33,7 @@ type OptionConfig struct {
 	Option models.Option
 }
 
-func (*OptionHandle) Option() *internal.ConfigEnvironment {
+func (*OptionHandle) Option() *internals.ConfigEnvironment {
 	index := len(OptionSet)
 	if index > 0 {
 		op := OptionConfig{}
@@ -49,9 +49,9 @@ func (*OptionHandle) Option() *internal.ConfigEnvironment {
 				op.Option.LoadENV = v.(bool)
 			}
 		}
-		return internal.NewLoad(stringsUtils(constant.NAME, op.Name).(string), stringsUtils(constant.TYPE, op.Type).(string), stringsUtils(constant.PATH, op.Path).(string), stringsUtils(constant.LOAD_ENV, op.Option.LoadENV).(bool))
+		return internals.NewLoad(stringsUtils(constant.NAME, op.Name).(string), stringsUtils(constant.TYPE, op.Type).(string), stringsUtils(constant.PATH, op.Path).(string), stringsUtils(constant.LOAD_ENV, op.Option.LoadENV).(bool))
 	} else {
-		return internal.NewLoad(constant.DEFAULT_NAME, constant.DEFAULT_TYPE, constant.DEFAULT_PATH, constant.DEFAULT_LOAD_ENV)
+		return internals.NewLoad(constant.DEFAULT_NAME, constant.DEFAULT_TYPE, constant.DEFAULT_PATH, constant.DEFAULT_LOAD_ENV)
 	}
 }
 
