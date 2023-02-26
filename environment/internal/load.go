@@ -26,7 +26,7 @@ func NewLoad(_name string, _type string, _path string, _loadEnv bool) *ConfigEnv
 	}
 }
 
-func (c *ConfigEnvironment) Load(model interface{}) {
+func (c *ConfigEnvironment) Load(model any) {
 	v := viper.New()
 	v.SetConfigName(c.Name)
 	v.SetConfigType(c.Type)
