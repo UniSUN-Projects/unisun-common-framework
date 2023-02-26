@@ -38,7 +38,7 @@ func (c *ConfigEnvironment) Load(model interface{}) {
 	if err := v.ReadInConfig(); err != nil {
 		log.Panic(err)
 	}
-	if err := v.Unmarshal(&model); err != nil {
+	if err := v.Unmarshal(model); err != nil {
 		log.Panic(err)
 	}
 }
