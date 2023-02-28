@@ -25,8 +25,6 @@ func (*OptionHandle) Connect() {
 	if err != nil {
 		panic(err)
 	}
-	instant, _ := db.DB()
-	defer instant.Close()
 }
 
 func (*OptionHandle) SetMigrate(instan any) error {
@@ -35,4 +33,12 @@ func (*OptionHandle) SetMigrate(instan any) error {
 
 func (*OptionHandle) Get() *gorm.DB {
 	return db
+}
+
+func (*OptionHandle) Close() error {
+	sqlDB, err := db.DB()
+	if err != nil {
+		panic(err)
+	}
+	return sqlDB.Close()
 }
