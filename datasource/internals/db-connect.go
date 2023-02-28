@@ -2,7 +2,6 @@ package internals
 
 import (
 	"fmt"
-	"time"
 
 	"github.com/UniSUN-Projects/unisun-common-framework/datasource/models"
 	"gorm.io/driver/postgres"
@@ -27,14 +26,6 @@ func (*OptionHandle) Connect() {
 		panic(err)
 	}
 	dbInstance, _ := db.DB()
-	// SetMaxIdleConns sets the maximum number of connections in the idle connection pool.
-	dbInstance.SetMaxIdleConns(10)
-
-	// SetMaxOpenConns sets the maximum number of open connections to the database.
-	dbInstance.SetMaxOpenConns(100)
-
-	// SetConnMaxLifetime sets the maximum amount of time a connection may be reused.
-	dbInstance.SetConnMaxLifetime(time.Hour)
 	defer func() {
 		dbInstance.Close()
 	}()
