@@ -35,7 +35,9 @@ func (*OptionHandle) Connect() {
 
 	// SetConnMaxLifetime sets the maximum amount of time a connection may be reused.
 	dbInstance.SetConnMaxLifetime(time.Hour)
-	defer dbInstance.Close()
+	defer func() {
+		dbInstance.Close()
+	}()
 }
 
 func (*OptionHandle) SetMigrate(instan any) error {
