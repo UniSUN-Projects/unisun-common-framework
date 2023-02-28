@@ -25,10 +25,8 @@ func (*OptionHandle) Connect() {
 	if err != nil {
 		panic(err)
 	}
-	dbInstance, _ := db.DB()
-	defer func() {
-		dbInstance.Close()
-	}()
+	instant, _ := db.DB()
+	defer instant.Close()
 }
 
 func (*OptionHandle) SetMigrate(instan any) error {
